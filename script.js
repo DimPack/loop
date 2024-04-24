@@ -43,3 +43,32 @@ for (let i = maxValueRange; i >= minValueRange; i--) {
        console.log(i); 
     }
 }
+
+/*Створити об'єкт country двома способами: літерально та за допомогою функції конструктора
+властивості:
+- name (рядок)
+- population (число)
+- area (число)
+метод:
+- getDensity() - повертає число 45.78 */
+
+const countryL = {
+    name:'Main',
+    population: 1000000,
+    area: 60,
+    getDensity: function(){
+        return 45.78;
+    }
+}
+
+
+function Country(name, population, area ){
+    this.name = name;
+    this.population = population;
+    this.area = area;
+    this.getDensity = function(){
+        return 45.78;
+    }
+}
+const countryF = new Country('Main', 1000000, 60);
+console.log(countryF);
