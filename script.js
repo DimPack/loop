@@ -73,3 +73,42 @@ function Country(name, population, area ){
 const countryF = new Country('Main', 1000000, 60);
 console.log(countryF.getDensity());
 console.log(countryL.getDensity());
+
+/*Створити об'єкт country двома способами: літерально та за допомогою функції конструктора
+властивості:
+- name (рядок)
+- population (число)
+- area (число)
+методи покласти в прототип
+- getDensity() - повертає число яке є результатом обчислення популяція поділена на площу
+
+- getInfo() - повертає рядок з повною інформацією про країну (назва, популяція та площа) з описом що виводить і одиницями вимірювання */
+
+const СountryPrototype = {
+    getDensity: function(){
+        return this.population / this.area;
+    },
+    getInfo: function(){
+        return console.log(`Повна Інформація: \n назва країни: ${this.name} \n популяція країни: ${this.population} осіб \n площа країни: ${this.area} м²`);
+    }
+}
+
+const countryLiteral = {
+    name:'Main',
+    population: 1000000,
+    area: 60,
+    __proto__: СountryPrototype
+}
+
+
+function CountryConstr(name, population, area ){
+    this.name = name;
+    this.population = population;
+    this.area = area;
+}
+CountryConstr.prototype = СountryPrototype;
+
+const countryСonstructor = new CountryConstr('Ukr',4000000000, 4582);
+
+console.log(countryСonstructor.getInfo());
+console.log(countryLiteral.getInfo());
