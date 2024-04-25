@@ -57,7 +57,7 @@ const countryL = {
     population: 1000000,
     area: 60,
     getDensity: function(){
-        return 45.78;
+        return this.population / this.area;
     }
 }
 
@@ -67,8 +67,9 @@ function Country(name, population, area ){
     this.population = population;
     this.area = area;
     this.getDensity = function(){
-        return 45.78;
+        return this.population / this.area;
     }
 }
 const countryF = new Country('Main', 1000000, 60);
-console.log(countryF);
+console.log(countryF.getDensity());
+console.log(countryL.getDensity());
